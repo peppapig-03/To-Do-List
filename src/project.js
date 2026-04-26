@@ -1,6 +1,7 @@
-const project=function(projectName){
+const project=function(projectName,Id){
     let contents=[]
     const name=projectName
+    const id=Id
     const append=function(todoitem){
         contents.push(todoitem)
     }
@@ -10,6 +11,9 @@ const project=function(projectName){
     const remove=function(todoitem){
         contents.splice(contents.indexOf(todoitem),1)
     }
-    return {append,retrieveContents,remove,name}
+    const exists=function(todoitem){
+        return contents.indexOf(todoitem)
+    }
+    return {append,retrieveContents,remove,name,id,exists}
 }
 export default project

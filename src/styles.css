@@ -1,4 +1,18 @@
 body{
-    background-color:orange;
-    color:blue;
+    background-color:#F2F5F7;
+    padding:0px 30px;
+    display:grid;
+    gap:30px;
+    grid-template-rows: 1fr 6fr;
+    color:black;
+    height:100dvh;
+}
+.bigTitle{
+    background-color:#A2D2FF;
+    text-align:center;
+    font-size:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:30px;
 }
