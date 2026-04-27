@@ -25,14 +25,27 @@
                 </svg>
             </button>
             <form>
-                <label for="titleInput">Title:</label>
-                <input type="text" id="titleInput">
-                <label for="descriptionInput">Description:</label>
-                <input type="text" id="descriptionInput">
-                <label for="dueDateInput">Due Date:</label>
-                <input type="text" id="dueDateInput">
-                <label for="priorityInput">Priority:</label>
-                <input type="text" id="priorityInput">      
+                <div class="queryBox">
+                    <label for="titleInput">Title:</label>
+                    <input type="text" id="titleInput" name="titleInput">
+                </div><div class="queryBox">
+                    <label for="descriptionInput">Description:</label>
+                    <input type="text" id="descriptionInput" name="descriptionInput">
+                </div><div class="queryBox">
+                    <label for="dueDateInput">Due Date:</label>
+                    <input type="text" id="dueDateInput" name="dueDateInput">
+                </div><div class="queryBox">
+                    <label for="priorityInput">Priority:</label>
+                    <input type="text" id="priorityInput" name="priorityInput">   
+                </div><div class="queryBox">
+                    <label for="project">Project:</label>
+                    <select id="project" name="project">
+                        <option>New</option>
+                    </select>
+                </div>
+                <div class="submitButtonBox">
+                    <button id="submitButton">Submit</button> 
+                </div>  
             </form>
         </dialog>
     </div>
