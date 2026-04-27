@@ -25,6 +25,7 @@ const database=(function(){
         const newProject=createNewProject(projectName)
         addItemtoAnyProject(item,newProject)
         memory.post(newProject)
+        return newProject
     }
     const returnProjectId=function(projectName){
         const dictionary=memory.getAllNames()
@@ -51,13 +52,14 @@ const database=(function(){
         let existingProject=memory.get(projectId)
         existingProject.append(item)
         memory.put(projectId,existingProject)
+        return existingProject
     }
     const itemProjectMasterFunction=function(item, projectName){
         const id=returnProjectId(projectName)
         if (id==-1){
-            addItemtoNewProject(item,projectName)
+            return addItemtoNewProject(item,projectName)
         } else{
-            addItemtoExistingProject(item,id)
+            return addItemtoExistingProject(item,id)
         }
     }
     const removeItemfromExistingProject=function(item,projectName){
@@ -82,6 +84,13 @@ const database=(function(){
             item.updateStatus()
         }
     }
-    return {createNewItem,itemProjectMasterFunction,removeItemfromExistingProject,deleteProject,changeStatus}
+    const retrieveAllProjects=function(){
+        const allProjects=memory.getAllProjects()
+        let intermediaryList=Object.entries(allProjects)
+        intermediaryList.sort((a,b)=>{a[0]-b[0]})
+        let finalList=intermediaryList.map((x)=>{return x[1]})
+        return finalList
+    }
+    return {createNewItem,itemProjectMasterFunction,removeItemfromExistingProject,deleteProject,changeStatus,retrieveAllProjects}
 })()
 export default database

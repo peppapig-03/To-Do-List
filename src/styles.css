@@ -21,8 +21,12 @@ body{
     display:grid;
     padding:30px;
     gap:30px;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     border-radius:30px;
+}
+.projectCard{
+    background-color:#F2F5F7;
+    display:flex;
 }
 .buttonBox{
     display:flex;

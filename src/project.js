@@ -14,6 +14,6 @@ const project=function(projectName,Id){
     const exists=function(todoitem){
         return contents.indexOf(todoitem)
     }
-    return {append,retrieveContents,remove,name,id,exists}
+    return {get size(){return contents.length},append,retrieveContents,remove,name,id,exists}
 }
 export default project

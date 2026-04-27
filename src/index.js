@@ -13,6 +13,13 @@ console.log(memory.get(1).retrieveContents())
 database.deleteProject("pw3")*/
 let form=document.querySelector("form")
 let dialog=document.querySelector("dialog")
+const renderall=function(){
+    render.clearAll()
+    const allProjectList=database.retrieveAllProjects()
+    allProjectList.forEach((project)=>{
+        render.addProjectCard(render.createProjectCard(project))
+    })
+}
 form.addEventListener("submit",(event)=>{
     event.preventDefault()
     const data=new FormData(form)
@@ -25,6 +32,6 @@ form.addEventListener("submit",(event)=>{
     const projectName=data.get("projectInput")
     const item=database.createNewItem(title,description,dueDate,priority)
     database.itemProjectMasterFunction(item,projectName)
-    memory.printAll()
+    renderall()
 })
 

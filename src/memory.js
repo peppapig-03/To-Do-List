@@ -33,7 +33,10 @@ const memory=(function(){
         })
         console.log("End printAll()")
     }
-    return {post,print,getAllNames,get,put,del,printAll}
+    const getAllProjects=function(){
+        return list_of_projects
+    }
+    return {post,print,getAllNames,get,put,del,printAll,getAllProjects}
 
 })()
 export default memory
