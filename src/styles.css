@@ -3,7 +3,7 @@ body{
     padding:0px 30px;
     display:grid;
     gap:30px;
-    grid-template-rows: 1fr 6fr;
+    grid-template-rows: 1fr 6fr 1fr;
     color:black;
     height:100dvh;
 }
@@ -15,4 +15,25 @@ body{
     align-items:center;
     justify-content:center;
     border-radius:30px;
+}
+.cardSpace{
+    background-color:#A2D2FF;
+}
+.bottomButtons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+#plusButton{
+    max-height: 100px;
+    height:100%;
+    padding:0px;
+    margin:0px;
+    aspect-ratio: 1;
+    border-style:none;
+    background-color:#F2F5F7;
+}
+#plus{
+    font-size:100px;
+    stroke-width:0px;
 }
