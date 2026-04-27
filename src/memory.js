@@ -25,7 +25,15 @@ const memory=(function(){
     const del=function(id){
         delete list_of_projects[id]
     }
-    return {post,print,getAllNames,get,put,del}
+    const printAll=function(){
+        console.log("Start printAll():")
+        Object.entries(list_of_projects).forEach(([key,value])=>{
+            console.log(`Id:${key}, Project Name:${value.name}, Project Contents:`)
+            console.log(value.retrieveContents())
+        })
+        console.log("End printAll()")
+    }
+    return {post,print,getAllNames,get,put,del,printAll}
 
 })()
 export default memory

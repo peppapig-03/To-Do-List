@@ -25,7 +25,6 @@ const database=(function(){
         const newProject=createNewProject(projectName)
         addItemtoAnyProject(item,newProject)
         memory.post(newProject)
-        memory.print()
     }
     const returnProjectId=function(projectName){
         const dictionary=memory.getAllNames()
@@ -52,7 +51,6 @@ const database=(function(){
         let existingProject=memory.get(projectId)
         existingProject.append(item)
         memory.put(projectId,existingProject)
-        memory.print()
     }
     const itemProjectMasterFunction=function(item, projectName){
         const id=returnProjectId(projectName)
@@ -67,7 +65,6 @@ const database=(function(){
         if (existingProject!=-1){
         existingProject.remove(item)
         }
-        memory.print()
     }
     const deleteProject=function(projectName){
         const id=returnProjectId(projectName)
@@ -78,7 +75,6 @@ const database=(function(){
         memory.del(id)
         skippedIds.push(id)
         skippedIds.sort()
-        memory.print()
     }
     const changeStatus=function(item,projectName){
         const existingProject=removeItemfromExistingProject(item,projectName)
