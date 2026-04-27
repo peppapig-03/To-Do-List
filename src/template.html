@@ -7,18 +7,34 @@
 </head>
 <body>
     <div class="bigTitle">Todo-items</div>
-    <div class="cardSpace">
-    
-    </div>
-    <div class="bottomButtons">
-        <button command="show-modal" commandfor="formDialog" id="plusButton">
-            <svg viewBox="0 0 100 100" stroke="gray" stroke-width="1.5">
-                <circle cx="50" cy="50" r="48" fill="#A2D2FF"/>
-                <text x="23" y="83" id="plus">+</text>
+    <div class="cardGroup"></div>
+    <div class="buttonBox">
+        <button id="newProject" command="show-modal" commandfor="dialogForm">
+            <svg width="100" height="100">
+                <title>New Project</title>
+                <circle cx="50" ,="" cy="50" r="48" stroke="black" stroke-width="0" fill="#A2D2FF"></circle>
+                <text x="25" ,="" y="80" fill="black" font-size="90">+</text>
             </svg>
         </button>
+        <dialog id="dialogForm">
+            <button commandfor="dialogForm" command="close" id="closeButton">
+                <svg width="50" height="50">
+                    <title>Close</title>
+                    <circle cx="25" ,="" cy="25" r="25" stroke="black" stroke-width="0" fill="#A2D2FF"></circle>
+                    <text x="12" ,="" y="38" fill="black" font-size="50">x</text>
+                </svg>
+            </button>
+            <form>
+                <label for="titleInput">Title:</label>
+                <input type="text" id="titleInput">
+                <label for="descriptionInput">Description:</label>
+                <input type="text" id="descriptionInput">
+                <label for="dueDateInput">Due Date:</label>
+                <input type="text" id="dueDateInput">
+                <label for="priorityInput">Priority:</label>
+                <input type="text" id="priorityInput">      
+            </form>
+        </dialog>
     </div>
-
-    
 </body>
 </html>
