@@ -2,6 +2,7 @@ import "./styles.css"
 import database from "./database.js"
 import memory from "./memory.js"
 import render from "./view.js"
+import {deKebab} from "./misc.js"
 /*let item=database.createNewItem(1,2,3,4)
 database.itemProjectMasterFunction(item,"pw1")
 database.itemProjectMasterFunction(item,"pw2")
@@ -17,7 +18,12 @@ const renderall=function(){
     render.clearAll()
     const allProjectList=database.retrieveAllProjects()
     allProjectList.forEach((project)=>{
-        render.addProjectCard(render.createProjectCard(project))
+        const projectCard=render.createProjectCard(project)
+        render.addProjectCard(projectCard)
+        project.retrieveContents().forEach((todoitem)=>{
+            const todoCard=render.createtodoCard(todoitem)
+            render.addtodoCard(projectCard,todoCard)
+        })
     })
 }
 form.addEventListener("submit",(event)=>{
@@ -34,4 +40,3 @@ form.addEventListener("submit",(event)=>{
     database.itemProjectMasterFunction(item,projectName)
     renderall()
 })
-
