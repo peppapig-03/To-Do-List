@@ -46,7 +46,25 @@ const render=(function(){
         const button=document.createElement("button")
         buttonBox.appendChild(button)
         button.classList.add("deleteItemButton")
+        button.textContent="delete"
         return button
+    }
+    const updateStatusButton=function(buttonBox){
+        const button=document.createElement("button")
+        buttonBox.appendChild(button)
+        button.classList.add("updateStatusButton")
+        button.textContent="completion"
+        return button
+    }
+    const updateItemButton=function(buttonBox){
+        const button=document.createElement("button")
+        buttonBox.appendChild(button)
+        button.classList.add("updateItemButton")
+        button.textContent="update"
+        return button
+    }
+    const openEditDialog=function(){
+        
     }
     return {createProjectCard,
         addProjectCard,
@@ -54,7 +72,9 @@ const render=(function(){
         createtodoCard,
         addtodoCard,
         todoButtonBox,
-        deleteItemButton}
+        deleteItemButton,
+        updateStatusButton,
+        updateItemButton}
 
 })()
 export default render

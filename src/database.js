@@ -67,6 +67,11 @@ const database=(function(){
         if (existingProject!=-1){
         existingProject.remove(item)
         }
+        const project=memory.get(returnProjectId(projectName))
+        if (project.size==0){
+            deleteProject(projectName)
+        }
+
     }
     const deleteProject=function(projectName){
         const id=returnProjectId(projectName)

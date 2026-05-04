@@ -16,12 +16,19 @@ const renderall=function(){
             render.addtodoCard(projectCard,todoCard)
             const buttonBox=render.todoButtonBox(todoCard)
             const deleteButton=render.deleteItemButton(buttonBox)
-            deleteButton.addEventListener("click",(event)=>{
+            deleteButton.addEventListener("click",()=>{
                 database.removeItemfromExistingProject(todoitem,project.name)
                 renderall()
             })
-            const deleteButton2=render.deleteItemButton(buttonBox)
-            const deleteButton3=render.deleteItemButton(buttonBox)
+            const updateStatusButton=render.updateStatusButton(buttonBox)
+            updateStatusButton.addEventListener("click",()=>{
+                todoitem.updateStatus()
+                renderall()
+            })
+            const updateItemButton=render.updateItemButton(buttonBox)
+            updateItemButton.addEventListener("click",()=>{
+                
+            })
         })
     })
 }

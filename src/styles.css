@@ -117,5 +117,5 @@ body{
 .buttonBox{
     margin:max(10px,2dvh) min(0.5dvw,20px);
     display:flex;
-    gap:min(1dvw,20px)
+    gap:min(1dvw,20px);
 }
