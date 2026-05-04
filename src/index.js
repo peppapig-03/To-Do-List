@@ -1,10 +1,10 @@
 import "./styles.css"
 import database from "./database.js"
-import memory from "./memory.js"
 import render from "./view.js"
-import {deKebab} from "./misc.js"
-let form=document.querySelector("form")
-let dialog=document.querySelector("dialog")
+let form=document.querySelector("#initForm")
+let dialog=document.querySelector(".dialogForm")
+const buttonBox=document.querySelector(".buttonBox")
+const cardGroup=document.querySelector(".cardGroup")
 const renderall=function(){
     render.clearAll()
     const allProjectList=database.retrieveAllProjects()
@@ -27,15 +27,20 @@ const renderall=function(){
             })
             const updateItemButton=render.updateItemButton(buttonBox)
             updateItemButton.addEventListener("click",()=>{
-                
+                const editDialog=render.addDialog(todoCard)
             })
         })
     })
 }
+/*newEntryButton.addEventListener("click",()=>{
+    const editDialog=render.addDialog(cardGroup)
+    editDialog.textContent="Test234"
+})*/
 form.addEventListener("submit",(event)=>{
     event.preventDefault()
     const data=new FormData(form)
     form.reset()
+    buttonBox.appendChild(dialog)
     dialog.close()
     const projectName=data.get("projectInput")
     const item=database.createNewItem(data)

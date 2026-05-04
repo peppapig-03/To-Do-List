@@ -1,4 +1,5 @@
 import {deKebab} from "./misc.js"
+import renderDialog from "./renderDialog.js"
 const render=(function(){
     const cardGroup=document.querySelector(".cardGroup")
     const createProjectCard=function(project){
@@ -63,8 +64,11 @@ const render=(function(){
         button.textContent="update"
         return button
     }
-    const openEditDialog=function(){
-        
+    const addDialog=function(parent){
+        const dialogBox=renderDialog.spawnDialog()
+        parent.appendChild(dialogBox)
+        dialogBox.showModal()
+        return dialogBox        
     }
     return {createProjectCard,
         addProjectCard,
@@ -74,7 +78,8 @@ const render=(function(){
         todoButtonBox,
         deleteItemButton,
         updateStatusButton,
-        updateItemButton}
+        updateItemButton,
+        addDialog}
 
 })()
 export default render
