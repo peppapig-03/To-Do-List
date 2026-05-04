@@ -36,7 +36,25 @@ const render=(function(){
             cardGroup.removeChild(cardGroup.firstElementChild)
         }
     }
-    return {createProjectCard,addProjectCard,clearAll,createtodoCard,addtodoCard}
+    const todoButtonBox=function(todoCard){
+        const buttonBox=document.createElement("div")
+        todoCard.appendChild(buttonBox)
+        buttonBox.classList.add("buttonBox")
+        return buttonBox
+    }
+    const deleteItemButton=function(buttonBox){
+        const button=document.createElement("button")
+        buttonBox.appendChild(button)
+        button.classList.add("deleteItemButton")
+        return button
+    }
+    return {createProjectCard,
+        addProjectCard,
+        clearAll,
+        createtodoCard,
+        addtodoCard,
+        todoButtonBox,
+        deleteItemButton}
 
 })()
 export default render

@@ -91,6 +91,11 @@ const database=(function(){
         let finalList=intermediaryList.map((x)=>{return x[1]})
         return finalList
     }
-    return {createNewItem,itemProjectMasterFunction,removeItemfromExistingProject,deleteProject,changeStatus,retrieveAllProjects}
+    return {createNewItem,
+        itemProjectMasterFunction,
+        removeItemfromExistingProject,
+        deleteProject,
+        changeStatus,
+        retrieveAllProjects}
 })()
 export default database

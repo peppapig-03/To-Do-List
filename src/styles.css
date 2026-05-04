@@ -30,13 +30,13 @@ body{
     flex-direction:column;
     font-size:30px;
     gap:10px;
-    padding:10px;
+    padding:15px;
     border-radius:20px;
 }
 .todoCard{
     background-color:#A2D2FF;
     font-size:20px;
-    padding:5px;
+    padding:10px;
     display:flex;
     flex-direction:column;
     gap:3px;
@@ -109,4 +109,13 @@ body{
     height:100%;
     font-size:20px;
     padding:15px 20px;
+}
+.deleteItemButton{
+    width:25%;
+    aspect-ratio: 1;
+}
+.buttonBox{
+    margin:max(10px,2dvh) min(0.5dvw,20px);
+    display:flex;
+    gap:min(1dvw,20px)
 }

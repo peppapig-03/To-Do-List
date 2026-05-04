@@ -1,5 +1,9 @@
-const todoitem =function(title,description,dueDate,priority){
+const todoitem =function(data){
     let status=false
+    let title=data.get("titleInput")
+    let description=data.get("descriptionInput")
+    let dueDate=data.get("dueDateInput")
+    let priority=data.get("priorityInput")
     function retrieveItem(){
         return {title,description,dueDate,priority,status}
     }

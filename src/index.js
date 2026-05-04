@@ -3,15 +3,6 @@ import database from "./database.js"
 import memory from "./memory.js"
 import render from "./view.js"
 import {deKebab} from "./misc.js"
-/*let item=database.createNewItem(1,2,3,4)
-database.itemProjectMasterFunction(item,"pw1")
-database.itemProjectMasterFunction(item,"pw2")
-console.log(memory.get(2).retrieveContents())
-database.itemProjectMasterFunction(item,"pw2")
-console.log(memory.get(2).retrieveContents())
-database.removeItemfromExistingProject(item,"pw2")
-console.log(memory.get(1).retrieveContents())
-database.deleteProject("pw3")*/
 let form=document.querySelector("form")
 let dialog=document.querySelector("dialog")
 const renderall=function(){
@@ -23,6 +14,14 @@ const renderall=function(){
         project.retrieveContents().forEach((todoitem)=>{
             const todoCard=render.createtodoCard(todoitem)
             render.addtodoCard(projectCard,todoCard)
+            const buttonBox=render.todoButtonBox(todoCard)
+            const deleteButton=render.deleteItemButton(buttonBox)
+            deleteButton.addEventListener("click",(event)=>{
+                database.removeItemfromExistingProject(todoitem,project.name)
+                renderall()
+            })
+            const deleteButton2=render.deleteItemButton(buttonBox)
+            const deleteButton3=render.deleteItemButton(buttonBox)
         })
     })
 }
@@ -31,12 +30,8 @@ form.addEventListener("submit",(event)=>{
     const data=new FormData(form)
     form.reset()
     dialog.close()
-    const title=data.get("titleInput")
-    const description=data.get("descriptionInput")
-    const dueDate=data.get("dueDateInput")
-    const priority=data.get("priorityInput")
     const projectName=data.get("projectInput")
-    const item=database.createNewItem(title,description,dueDate,priority)
+    const item=database.createNewItem(data)
     database.itemProjectMasterFunction(item,projectName)
     renderall()
 })
