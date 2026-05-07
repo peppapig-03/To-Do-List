@@ -64,8 +64,13 @@ const render=(function(){
         button.textContent="update"
         return button
     }
-    const addDialog=function(parent){
-        const dialogBox=renderDialog.spawnDialog()
+    const addDialog=function(parent,inputArray={"title":"","description":"","dueDate":"","priority":""}){
+        const title=inputArray["title"]
+        const description=inputArray["description"]
+        const dueDate=inputArray["dueDate"]
+        const priority=inputArray["priority"]
+        const dialogBox=renderDialog.spawnDialog(title,description,dueDate,priority)
+        console.log(title,description,dueDate,priority)
         parent.appendChild(dialogBox)
         dialogBox.showModal()
         return dialogBox        

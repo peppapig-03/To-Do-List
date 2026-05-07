@@ -14,6 +14,17 @@ const project=function(projectName,Id){
     const exists=function(todoitem){
         return contents.indexOf(todoitem)
     }
-    return {get size(){return contents.length},append,retrieveContents,remove,name,id,exists}
+    const replace=function(oldTodoItem,newTodoItem){
+        contents[exists(oldTodoItem)]=newTodoItem
+    }
+    return {get size(){return contents.length},
+    append,
+    retrieveContents,
+    remove,
+    name,
+    id,
+    exists,
+    replace
+}
 }
 export default project

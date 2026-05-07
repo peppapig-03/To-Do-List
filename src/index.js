@@ -27,7 +27,17 @@ const renderall=function(){
             })
             const updateItemButton=render.updateItemButton(buttonBox)
             updateItemButton.addEventListener("click",()=>{
-                const editDialog=render.addDialog(todoCard)
+                const editDialog=render.addDialog(todoCard,todoitem.retrieveItem())
+                const editForm=editDialog.querySelector("form")
+                editForm.addEventListener("submit",(event)=>{
+                    event.preventDefault()
+                    const editData=new FormData(editForm)
+                    editDialog.close()
+                    const newTodoItem=database.createNewItem(editData)
+                    project.replace(todoitem,newTodoItem)
+                    renderall()
+                    console.log(editData.get("titleInput"))
+                })
             })
         })
     })

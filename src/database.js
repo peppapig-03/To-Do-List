@@ -71,7 +71,6 @@ const database=(function(){
         if (project.size==0){
             deleteProject(projectName)
         }
-
     }
     const deleteProject=function(projectName){
         const id=returnProjectId(projectName)
